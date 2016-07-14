@@ -65,10 +65,30 @@
 
 		//
 		$api.addEvt($api.byId('btnOpenLight'), 'click', function(){
-			var FNScanner = $api.require('FNScanner');
-			FNScanner.switchLight({
-				status: 'on'
+			var button = $api.require('UIButton');
+			button.setTitle({
+			    id: 1,
+			    title:{
+			        size: 14,
+			        highlight: '高亮状态标题',
+			        active: '选中后标题',
+			        normal: '常态标题',
+			        highlightColor: '#oo0000',
+			        activeColor: '#adf000',
+			        normalColor: '#ff0000',
+			        alignment: 'center'
+			    }
+			}, function(ret, err){   
+			    if( ret ){
+			        alert( JSON.stringify( ret ) );
+			    }else{
+			        alert( JSON.stringify( err ) );
+			    }
 			});
+			// var FNScanner = $api.require('FNScanner');
+			// FNScanner.switchLight({
+			// 	status: 'on'
+			// });
 		});
     };
 </script>
