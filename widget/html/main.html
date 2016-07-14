@@ -25,6 +25,7 @@
 <body>
     <label id="con">Hello APP</label>
 	<div id='sys-info'></div>
+    <a href="#" id="btnOpenLight">开启闪光灯</a>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
@@ -61,6 +62,14 @@
 
 		$api.byId('sys-info').innerHTML = str;
 
+
+		//
+		$api.addEvt($api.byId('btnOpenLight'), 'click', function(){
+			var FNScanner = $api.require('FNScanner');
+			FNScanner.switchLight({
+				status: 'on'
+			});
+		});
     };
 </script>
 </html>
