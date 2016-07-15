@@ -142,15 +142,15 @@
             versionID: 0,
             autoShow: true
         },
-//        {
-//            id: 13,
-//            name: "lineChart",
-//            brief: "折线图表，支持显示多条k线",
-//            sortId: 0,
-//            versionID: 0,
-//            autoShow: true,
-//            slidBackEnabled: false
-//        },
+        {
+            id: 13,
+            name: "lineChart",
+            brief: "折线图表，支持显示多条k线",
+            sortId: 0,
+            versionID: 0,
+            autoShow: true,
+            slidBackEnabled: false
+        },
         {
             id: 14,
             name: "listView",
