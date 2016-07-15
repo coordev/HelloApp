@@ -1,53 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>Hello APP</title>
-    <link rel="stylesheet" type="text/css" href="./css/api.css" />
-    <link rel="stylesheet" type="text/css" href="./css/common.css" />
-    <link rel="stylesheet" type="text/css" href="./css/idangerous.swiper.css">
-
-
-    <style>
-        /* 头部导航样式 */
-        .header {position: relative;height: 50px;line-height: 50px;background-color: #3993cf;}
-        .header .left  {position: absolute;left: 0;height: 50px;}
-        .header .right {position: absolute;right: 0;height: 50px;}
-        .header .right img {height: 30px;padding: 10px;}
-
-        .swiper-slide img {width: 100%;}
-
-        html,body{height:100%}
-        .spirit{position:absolute;width:50px;height:50px;background-color:red;}
-        #canvas{position:relative;width:100%;height:200px;background-color:#ccc}
-
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="copyright" content="www.apicloud.com" />
+<style>
+    html,body,header,section,footer,nav,div,ul,ol,li,img,a,span,em,del,center,strong,var,fieldset,form,label,dt,dd,cite,input,hr,time,mark,code,figcaption,figure,textarea{
+        margin:0;
+        border:0;
+        padding:0;
+        font-family: Tahoma, Geneva, sans-serif;
+        font-style:normal;
+    }
+html,body {
+    -webkit-touch-callout:none;
+    -webkit-text-size-adjust:none;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+    -webkit-user-select:none;
+}
+header,footer,section,nav,img,a,button,em,del,strong,var,fieldset,label,cite,small,time,mark,code,figcaption,figure,textarea{
+    display:block;
+}
+header,section,footer,nav {
+    position:relative;
+    overflow:hidden;
+}
+ol,ul{
+    list-style:none;
+}
+input,button,textarea {
+    border:0;
+    margin:0;
+    padding:0;
+    font-size:1em;
+    line-height:1em;
+    -webkit-appearance:none;
+    background-color:rgba(0, 0, 0, 0);
+}
+span{
+    display:inline-block;
+}
+a,a:visited{
+    text-decoration:none;
+}
+    body {
+        background-image: url(./image/common/bg.png);
+    }
+</style>
 </head>
 <body>
-
+	<br>
+	<br>
+	<br>
+	<br>
+	<button tapmode="ui-hov" onclick="opensl()">
+		<span></span>
+	</button>
+	<br>
+	<br>
+	<br>
 </body>
-<script type="text/javascript" src="./script/api.js"></script>
-<script type="text/javascript">
-
-   
-    apiready = function  () {
+<script>
+    window.apiready = function(){
         api.openSlidLayout({
-                leftEdge:80,
-                type:'left',
-                fixedPane:{
-                    name: 'homeFixed',
-                    url: './html/homeFixed.html'
-                },
-                slidPane:{
-                    name: 'homeSlide',
-                    url: './html/homeSlide.html'
-                }
-            }, function(ret) {
-                /* 暂时不需要做任何事. */
+                    leftEdge:api.winWidth / 6.67,
+                    type:'left',
+                    fixedPane:{
+                        name: 'homeFixed',
+                        url: './html/homeFixed.html'
+                    },
+                    slidPane:{
+                        name: 'homeSlid',
+                        url: './html/homeSlid.html'
+                    }
+                }, function(ret) {
+                    /* 暂时不需要做任何事. */
 
-            }
+                }
         );
-    }
+    };
 </script>
 </html>
