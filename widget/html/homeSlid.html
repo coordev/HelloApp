@@ -240,9 +240,18 @@ footer>span {
         $api.fixIos7Bar(header);
 
         //
-        $api.addEvt($api.byId('btnTest'), 'click', function(){
-            //do something
-            $api.html($api.byId('btnTest'), 'hello world');
+//        $api.addEvt($api.byId('btnTest'), 'click', function(){
+//            //do something
+//            $api.html($api.byId('btnTest'), 'hello world');
+//        });
+        var title = "模 块 体 验";
+        $("#btnTest").bind('click', function(){
+            if($(this).text() == title){
+                $(this).text("hello world");
+            }
+            else{
+                $(this).text(title);
+            }
         });
     };
 </script>
