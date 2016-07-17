@@ -123,7 +123,8 @@ apiready = function() {
     $api.fixIos7Bar(header);
 
     //
-    $api.css($api.byId("main"), 'width:'+api.winWidth+'px');
+    //$api.css($api.byId("main"), 'width:'+api.winWidth+'px');
+
 
     // Step:4 require echarts and use it in the callback.
     // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
@@ -179,6 +180,7 @@ apiready = function() {
                         }
                     ]
                 });
+                window.onresize = myChart.resize;
             }
     );
 
