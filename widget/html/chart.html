@@ -7,7 +7,6 @@
 <meta name="copyright" content="www.apicloud.com" />
 <link rel="stylesheet" href="../css/common.css">
     <script src="../script/api.js"></script>
-    <script src="../script/echarts.js"></script>
 <style>
     html,body,header,section,footer,nav,div,ul,ol,li,img,a,span,em,del,center,strong,var,fieldset,form,label,dt,dd,cite,input,hr,time,mark,code,figcaption,figure,textarea{
         margin:0;
@@ -89,12 +88,6 @@ section {
     body {
         background-image: url(../image/common/bg.png);
     }
-    #wrap{
-        background-color: red;;
-    }
-    #main{
-        background-color: blue;;
-    }
 </style>
 </head>
 <body>
@@ -111,96 +104,36 @@ section {
                 </a>
             </nav>
         </header>
-        <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->
-        <div id="main" style="height:300px; width: 300px"></div>
+        <div id="main">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <input type="file" id="exampleInputFile">
+                    <p class="help-block">Example block-level help text here.</p>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Check me out
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
     </div>
 </body>
 <script>
-    // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
-    require.config({
-        paths: {
-            echarts: '../script'
-        }
-    });
-
-
 apiready = function() {
     var header = $api.byId('header');
     $api.fixIos7Bar(header);
 
-    //
-    //$api.css($api.byId("main"), 'width:'+api.winWidth+'px');
-
-
-    // Step:4 require echarts and use it in the callback.
-    // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
-    require(
-            [
-                'echarts',
-                'echarts/chart/bar',
-                'echarts/chart/line'
-            ],
-            function (ec) {
-                //--- 折柱 ---
-                var myChart = ec.init(document.getElementById('main'));
-                myChart.setOption({
-                    tooltip : {
-                        trigger: 'axis'
-                    },
-                    legend: {
-                        data:['蒸发量','降水量']
-                    },
-//                    toolbox: {
-//                        show : true,
-//                        feature : {
-//                            mark : {show: true},
-//                            dataView : {show: true, readOnly: false},
-//                            magicType : {show: true, type: ['line', 'bar']},
-//                            restore : {show: true},
-//                            saveAsImage : {show: true}
-//                        }
-//                    },
-                    calculable : true,
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            splitArea : {show : true}
-                        }
-                    ],
-                    series : [
-                        {
-                            name:'蒸发量',
-                            type:'bar',
-                            data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
-                        },
-                        {
-                            name:'降水量',
-                            type:'bar',
-                            data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
-                        }
-                    ]
-                });
-                setTimeout(function (){
-                    window.onresize = function () {
-                        myChart.resize();
-                        $api.toast('你好啊');
-                    }
-                },1000);
-                myChart.resize();
-                $api.toast('resize');
-                api.toast({
-                    msg: '网络错误',
-                    duration: 2000,
-                    location: 'bottom'
-                });
-            }
-    );
 
 }
 
