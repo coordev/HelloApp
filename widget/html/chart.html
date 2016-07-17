@@ -186,7 +186,11 @@ apiready = function() {
                         }
                     ]
                 });
-                window.onresize = myChart.resize;
+                setTimeout(function (){
+                    window.onresize = function () {
+                        myChart.resize();
+                    }
+                },1000);
             }
     );
 
