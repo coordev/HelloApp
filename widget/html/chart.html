@@ -112,7 +112,7 @@ section {
             </nav>
         </header>
         <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->
-        <div id="main" style="height:300px;"></div>
+        <div id="main" style="height:300px; width: 300px"></div>
     </div>
 </body>
 <script>
@@ -189,6 +189,7 @@ apiready = function() {
                 setTimeout(function (){
                     window.onresize = function () {
                         myChart.resize();
+                        window.alert('resize success');
                     }
                 },1000);
             }
